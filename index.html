@@ -1,97 +1,103 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="es">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="styles.css" />
-    <title>Página Principal</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de ejemplo</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
-    <header class="header">
-        <!--Nombre del profe-->
-        <div class="nombre_profe">
-            <p>DR. JESÚS ALBERTO MARTÍNEZ CASTRO</p>
-        </div>
-        <!--Opciones de menú-->
-        <nav class="nav">
-            <ul class="nav_lista">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Alumnos</a></li>
-                <li><a href="#">Temas de investigación</a></li>
-                <li><a href="#">Enlaces y material de apoyo</a></li>
+    <header>
+        <h1>Dr. Jesús Alberto Martínez Castro</h1>
+        <nav id="nav">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="./views/alumnos/alumnos.html">Alumnos</a></li>
+                <li><a href="#">Líneas de investigación</a></li>
+                <li><a href="#">Material de apoyo</a></li>
             </ul>
         </nav>
-        <!--Portafolio personal-->
-        <a href="#" class="btn"><button>Portafolio</button></a>
+        <button id="menu-btn" onclick="toggleMenu()">Menú</button>
     </header>
 
+    <div id="overlay" onclick="toggleMenu()"></div>
+    <button id="close-btn" onclick="toggleMenu()">X</button>
 
-    <!--Imágen de sección-->
-    <div class="container_img">
-        <img src="img/principal.jpg" alt="Imágen principal" />
-        <p class="text_seccion">CENTRO DE INVESTIGACIÓN EN COMPUTACIÓN</p>
-    </div>
+    <section class="imagen-institucion">
+        <img src="./img/home/principal.jpg" alt="Imagen de la institución">
+        <div class="texto-sobre-imagen">Centro de Investigación en Computación</div>
+    </section>
 
-    <div class="msg_contenido">
-        <h2>INVESTIGADOR SNI NIVEL 1</h2>
-    </div>
-
-    <main class="main">
-        <!--Cards de secciones con breve descripción-->
-        <div class="card">
-            <div class="face front">
-                <img src="img/alumnos.jpg" alt="">
-                <h3>Alumnos</h3>
+    <section class="cards">
+        <h2>Investigador SNI nivel 1</h2>
+        <div class="cards-container">
+            
+            <div class="card" onmouseenter="mostrarInfo(this)" onmouseleave="ocultarInfo(this)">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <img src="./img/alumnos.jpg" alt="Imagen de la card">
+                        <h3>Alumnos</h3>
+                    </div>
+                    <div class="card-back">
+                        <h3>Alumnos</h3>
+                        <p>Trabajos realizados por los alumnos.</p>
+                        <a href="./views/alumnos/alumnos.html">Ir a la sección</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Fin del bloque card -->
+            <div class="card" onmouseenter="mostrarInfo(this)" onmouseleave="ocultarInfo(this)">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <img src="./img/bit_cuantico.png" alt="Imagen de la card">
+                        <h3>Líneas de investigación</h3>
+                    </div>
+                    <div class="card-back">
+                        <h3>Líneas de investigación</h3>
+                        <p>Investigaciones sobre cómputo cuántico, probabilidad, machine learning, etc.</p>
+                        <a href="#">Ir a la sección</a>
+                    </div>
+                </div>
             </div>
 
-            <div class="face back">
-                <h3>Alumnos</h3>
-                <p>Trabajos realizados en clase.</p>
-                <div class="link">
-                    <a href="#">Ver</a>
+            <div class="card" onmouseenter="mostrarInfo(this)" onmouseleave="ocultarInfo(this)">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <img src="./img/enlace.jpg" alt="Imagen de la card">
+                        <h3>Material de apoyo</h3>
+                    </div>
+                    <div class="card-back">
+                        <h3>Material de apoyo</h3>
+                        <p>Libros, artículos, cursos, conferencias, etc.</p>
+                        <a href="#">Ir a la sección</a>
+                    </div>
                 </div>
-
             </div>
         </div>
+    </section>
 
-        <div class="card">
-            <div class="face front">
-                <img src="img/bit_cuantico.png" alt="">
-                <h3>Temas de investigación</h3>
-            </div>
-
-            <div class="face back">
-                <h3>Temas de investigación</h3>
-                <p>Cómputo cuántico, probabilidad y estadística, redes neuronales, y más.</p>
-                <div class="link">
-                    <a href="#">Ver</a>
-                </div>
-
-            </div>
-        </div>
-
-        <div class="card">
-            <div class="face front">
-                <img src="img/enlace.jpg" alt="">
-                <h3>Enlaces y material de apoyo</h3>
-            </div>
-
-            <div class="face back">
-                <h3>Enlaces y material de apoyo</h3>
-                <p>Referencias a documentos que pueden ser de utilidad o de interés.</p>
-                <div class="link">
-                    <a href="#">Ver</a>
-                </div>
-
-            </div>
-        </div>
-    </main>
-
-    <footer class="footer">
-        <!--Derechos reservados-->
-        <h4>© Todos los derechos reservados. </h4>
+    <footer>
+        &copy; 2023 - Derechos reservados
     </footer>
-</body>
 
+    <script>
+        function mostrarInfo(card) {
+            card.querySelector('.card-inner').style.transform = 'rotateY(180deg)';
+        }
+
+        function ocultarInfo(card) {
+            card.querySelector('.card-inner').style.transform = '';
+        }
+
+        function toggleMenu() {
+            var nav = document.getElementById('nav');
+            var overlay = document.getElementById('overlay');
+            var closeBtn = document.getElementById('close-btn');
+            nav.classList.toggle('mostrar');
+            overlay.classList.toggle('mostrar');
+            closeBtn.classList.toggle('mostrar');
+        }
+    </script>
+</body>
 </html>

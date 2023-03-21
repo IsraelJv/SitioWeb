@@ -1,0 +1,28 @@
+{
+  "estudiantes": [
+    {
+      "nombre": "Juan Pérez",
+      "imagen": "ruta-de-la-imagen-juan",
+      "trabajos": [
+        {
+          "titulo": "Proyecto de investigación 1",
+          "archivo": "ruta-del-archivo-1"
+        },
+        {
+          "titulo": "Proyecto de investigación 2",
+          "archivo": "ruta-del-archivo-2"
+        }
+      ]
+    },
+    {
+      "nombre": "María García",
+      "imagen": "ruta-de-la-imagen-maria",
+      "trabajos": [
+        {
+          "titulo": "Proyecto de investigación 3",
+          "archivo": "ruta-del-archivo-3"
+        }
+      ]
+    }
+  ]
+}
